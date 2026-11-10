@@ -1,0 +1,6 @@
+# Ye files git/GitHub par kabhi nahi jaani chahiye
+.env
+node_modules/
+public/vendor/
+*.log
+supabase-ca.crt

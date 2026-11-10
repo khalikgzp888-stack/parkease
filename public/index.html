@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+  index.html — The single HTML page for the entire website (Single Page App).
+  All screens (home, login, search, booking, etc.) are rendered by app.js
+  inside <main id="app"> based on the URL hash (e.g. #/app, #/login).
+  Icons (Lucide) and maps (Leaflet) come from public/vendor/ -> created by "npm run vendor".
+-->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ParkEase — Apni parking, apne rules</title>
+  <meta name="description" content="Find, book and list parking spaces across India in seconds.">
+  <meta property="og:title" content="ParkEase — Find parking in seconds">
+  <meta property="og:description" content="India's peer-to-peer parking marketplace.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Neeche ke khali dabbe app.js bharta hai -->
+  <div id="header"></div> <!-- upar ka sticky header -->
+  <main id="app"></main> <!-- current screen -->
+  <nav id="bottomnav" class="bottomnav" aria-label="Main"></nav> <!-- mobile ka neeche wala menu -->
+  <div id="toasts" class="toasts" aria-live="polite"></div> <!-- chhote notification (toast) -->
+  <div id="modal" class="modal-wrap" hidden></div> <!-- popup / bottom sheet -->
+
+  <script src="vendor/lucide.min.js"></script> <!-- icons -->
+  <script src="vendor/leaflet/leaflet.js"></script> <!-- map -->
+  <script src="data.js"></script> <!-- static sample text (reviews, testimonials) -->
+  <script src="app.js"></script> <!-- poora frontend logic + backend (API) se baat -->
+</body>
+
+</html>
