@@ -66,7 +66,7 @@ DATABASE_SSL=false
 
 First, create the database using `createdb parkease`.
 
-## 3. Complete Request Flow (Explain This in Interviews)
+## 3. Complete Request Flow
 
 When a user clicks "Reserve":
 
@@ -137,16 +137,3 @@ When a user clicks "Reserve":
 | Design not appearing | The CSS filename must be `styles.css`, not `style.css` |
 | `JWT_SECRET missing` | `JWT_SECRET` must be at least 32 characters long in `.env` |
 | Immediate logout after login | HTTPS is required in production (cookie `Secure`); also set `TRUST_PROXY=1` |
-
-## 8. Interview Cheat Sheet
-
-- **Frontend vs Backend?** Frontend runs in the browser and is publicly accessible. Backend runs on the server, handles rules, login, payments, and communicates with the database.
-- **Why not connect the database directly to the frontend?** Credentials would become public. The backend acts as an intermediary and handles validation + access control.
-- **Why SQL?** Booking and payment systems require transactions and table relationships. (`schema.sql`)
-- **How is double booking prevented?** Using a database exclusion constraint (`routes/bookings.js` catches error 23P01). Even if two users try simultaneously, only one booking succeeds.
-- **What is JWT?** A signed token containing the user's ID. It is stored in a cookie, sent with every request, and verified by `middleware/auth.js`.
-- **How are passwords stored?** Using bcrypt hashing, never as plain text.
-- **How is SQL injection prevented?** Using `$1, $2` parameterized queries.
-- **What is XSS and how is it prevented?** If someone inserts a script into a listing, it could execute in other users' browsers. We escape user input + use CSP.
-- **Why is the price not calculated in the browser?** Anyone can modify browser code, so the server calculates the price.
-
